@@ -1,13 +1,12 @@
-fn main() {
-    let x = 5;
-    let x = x + 1;
-    {
-        let x = x * 2;
-        println!("The value of x in the inner scope is: {x}");
-    }
-    println!("The value of x is: {x}");
+fn type_of<T>(_: &T) -> &str {
+    std::any::type_name::<T>()
+}
 
-    let mut spaces = "    ";
-    spaces = spaces.len();
-    println!("The number of spaces are: {spaces}");
+fn main() {
+    let x = 2.0; // f64
+
+    let y: f32 = 3.0; // f32
+
+    println!("f64: {}", type_of(&x));
+    println!("f32: {}", type_of(&y));
 }
